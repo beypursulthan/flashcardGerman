@@ -17,7 +17,7 @@ const cardCounter = document.getElementById("card-counter");
 function updateCard() {
   const card = flashcards[currentIndex];
   flashcardElement.innerHTML = `<strong>${card.word}</strong><br>${card.meaning}`;
-  
+
   // Update progress bar
   let progress = ((currentIndex + 1) / flashcards.length) * 100;
   progressBar.value = progress;
@@ -25,11 +25,11 @@ function updateCard() {
   // Update card counter text
   cardCounter.textContent = `${currentIndex + 1} of ${flashcards.length} cards`;
 
-  // Move to next card
+  // Increment index for next card (loops back to start)
   currentIndex = (currentIndex + 1) % flashcards.length;
 }
 
 nextButton.addEventListener("click", updateCard);
 
-// Initialize first card when page loads
+// Initialize the first card on page load
 updateCard();
