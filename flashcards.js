@@ -11,42 +11,25 @@ let currentIndex = 0;
 
 const flashcardElement = document.getElementById("flashcard");
 const nextButton = document.getElementById("nextButton");
-const prevButton = document.getElementById("prevButton");
+const progressBar = document.getElementById("progress-bar");
+const cardCounter = document.getElementById("card-counter");
 
-nextButton.addEventListener("click", () => {
-  showNextCard();
-});
-
-prevButton.addEventListener("click", () => {
-  showPreviousCard();
-});
-
-function updateProgress() {
-  const progressText = document.getElementById('progress-text');
-  progressText.textContent = `${currentIndex + 1} of ${flashcards.length} cards`;
-}
-
-function updateFlashcardDisplay() {
+function updateCard() {
   const card = flashcards[currentIndex];
   flashcardElement.innerHTML = `<strong>${card.word}</strong><br>${card.meaning}`;
+  
+  // Update progress bar
+  let progress = ((currentIndex + 1) / flashcards.length) * 100;
+  progressBar.value = progress;
+
+  // Update card counter text
+  cardCounter.textContent = `${currentIndex + 1} of ${flashcards.length} cards`;
+
+  // Move to next card
+  currentIndex = (currentIndex + 1) % flashcards.length;
 }
 
-function showNextCard() {
-  if (currentIndex < flashcards.length - 1) {
-    currentIndex++;
-    updateFlashcardDisplay();
-    updateProgress();
-  }
-}
+nextButton.addEventListener("click", updateCard);
 
-function showPreviousCard() {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateFlashcardDisplay();
-    updateProgress();
-  }
-}
-
-// Initialize the display and progress when the page loads
-updateFlashcardDisplay();
-updateProgress();
+// Initialize first card when page loads
+updateCard();
