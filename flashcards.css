@@ -5,13 +5,13 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  margin: 20px;
+  margin: 40px;
 }
 
 .card {
-  width: 300px;
+  width: 600px;
   max-width: 90%; /* Make it responsive */
-  height: 150px;
+  height: 3000px;
   margin: 20px auto;
   padding: 20px;
   border: 2px solid #333;
@@ -30,9 +30,9 @@ body {
 }
 
 .word {
-  font-size: 24px; /* Bigger size */
+  font-size: 26px; /* Bigger size */
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .meaning {
@@ -41,7 +41,7 @@ body {
 }
 
 #progress-container {
-  width: 300px;
+  width: 600px;
   max-width: 90%; /* Make it responsive */
   margin: 10px auto;
 }
@@ -64,7 +64,7 @@ progress::-webkit-progress-value {
 }
 
 button {
-  padding: 10px 20px;
+  padding: 20px 40px;
   font-size: 16px;
   cursor: pointer;
   background-color: #76c7c0;
