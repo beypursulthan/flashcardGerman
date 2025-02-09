@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>German Flashcards</title>
-  <link rel="stylesheet" href="flashcards.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards</title>
+  <style>
+    #progress-container {
+      margin-bottom: 10px;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h1>German Flashcards</h1>
-  <div class="flashcard-container">
-    <div id="flashcard" class="flashcard">
-      Click the "Next" button to see a flashcard.
-    </div>
-    <button id="nextButton">Next</button>
-  </div>
-  <script src="flashcards.js"></script>
   <div id="progress-container">
     <span id="progress-text"></span>
   </div>
+  <div id="flashcard"></div>
+  <button id="prevButton">Previous</button>
+  <button id="nextButton">Next</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
