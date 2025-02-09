@@ -1,31 +1,30 @@
 import { flashcards } from './database.js';
 
-let currentIndex = 0;
+let currentCardIndex = loadProgress();
+const flashcardElement = document.getElementById('flashcard');
+const nextButton = document.getElementById('nextButton');
 
-const flashcardElement = document.getElementById("flashcard");
-const nextButton = document.getElementById("nextButton");
-const progressBar = document.getElementById("progress-bar");
-const cardCounter = document.getElementById("card-counter");
-
-function updateCard() {
-  const card = flashcards[currentIndex];
-  flashcardElement.innerHTML = `
-    <div class="word">${card.word}</div>
-    <div class="meaning">${card.meaning}</div>
-  `;
-
-  // Update progress bar
-  let progress = ((currentIndex + 1) / flashcards.length) * 100;
-  progressBar.value = progress;
-
-  // Update card counter text
-  cardCounter.textContent = `${currentIndex + 1} of ${flashcards.length} cards`;
-
-  // Increment index for next card (loops back to start)
-  currentIndex = (currentIndex + 1) % flashcards.length;
+function updateFlashcard() {
+  const flashcard = flashcards[currentCardIndex];
+  flashcardElement.textContent = `${flashcard.word} - ${flashcard.meaning}`;
 }
 
-nextButton.addEventListener("click", updateCard);
+nextButton.addEventListener('click', () => {
+  currentCardIndex = (currentCardIndex + 1) % flashcards.length;
+  updateFlashcard();
+  saveProgress(currentCardIndex);
+});
 
-// Initialize the first card on page load
-updateCard();
+function saveProgress(currentCardIndex) {
+  localStorage.setItem('flashcardProgress', currentCardIndex);
+}
+
+function loadProgress() {
+  const savedProgress = localStorage.getItem('flashcardProgress');
+  if (savedProgress !== null) {
+    return parseInt(savedProgress, 10);
+  }
+  return 0; // Default to the first card if no progress is saved
+}
+
+updateFlashcard();
