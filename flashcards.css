@@ -27,3 +27,9 @@ button {
   margin-top: 10px;
   cursor: pointer;
 }
+
+#progress-container {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+}
