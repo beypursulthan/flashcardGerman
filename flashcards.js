@@ -16,7 +16,10 @@ const cardCounter = document.getElementById("card-counter");
 
 function updateCard() {
   const card = flashcards[currentIndex];
-  flashcardElement.innerHTML = `<strong>${card.word}</strong><br>${card.meaning}`;
+  flashcardElement.innerHTML = `
+    <div class="word">${card.word}</div>
+    <div class="meaning">${card.meaning}</div>
+  `;
 
   // Update progress bar
   let progress = ((currentIndex + 1) / flashcards.length) * 100;
