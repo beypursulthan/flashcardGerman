@@ -75,6 +75,8 @@ button {
   border-radius: 10px; /* Doubled from 5px */
   color: white;
   transition: background-color 0.3s ease;
+  width: fit-content; /* Add this line to fix the button width */
+  margin: 20px auto; /* Center the button */
 }
 
 button:hover {
