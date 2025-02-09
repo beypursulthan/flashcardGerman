@@ -1,4 +1,4 @@
-const flashcards = [
+export const flashcards = [
     { word: "der / die / das", meaning: "the; that, those; who, that" },
     { word: "und", meaning: "and" },
     { word: "sein", meaning: "to be" },
