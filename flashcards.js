@@ -1,11 +1,4 @@
-const flashcards = [
-  { word: "Haus", meaning: "House" },
-  { word: "Buch", meaning: "Book" },
-  { word: "Apfel", meaning: "Apple" },
-  { word: "Baum", meaning: "Tree" },
-  { word: "Stuhl", meaning: "Chair" },
-  { word: "Tisch", meaning: "Table" }
-];
+import { flashcards } from './database.js';
 
 let currentIndex = 0;
 
