@@ -1,35 +1,25 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-}
-
-.flashcard-container {
-  margin-top: 50px;
-}
-
-.flashcard {
-  margin: 20px auto;
-  padding: 20px;
-  width: 300px;
-  min-height: 150px;
-  border: 2px solid #333;
-  border-radius: 10px;
-  background-color: #fff;
-  font-size: 18px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
 #progress-container {
   margin-bottom: 10px;
   font-size: 18px;
   text-align: center;
+}
+
+#flashcard {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
