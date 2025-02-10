@@ -8,7 +8,7 @@ const cardCounter = document.getElementById('card-counter');
 
 function updateFlashcard() {
   const flashcard = flashcards[currentCardIndex];
-  flashcardElement.textContent = `${flashcard.word} - ${flashcard.meaning}`;
+  flashcardElement.innerHTML = `<div class="word">${flashcard.word}</div><div class="meaning">${flashcard.meaning}</div>`;
   updateProgress();
 }
 
