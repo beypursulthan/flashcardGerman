@@ -3,8 +3,19 @@ import { flashcards } from './database.js';
 let currentCardIndex = loadProgress();
 const flashcardElement = document.getElementById('flashcard');
 const nextButton = document.getElementById('nextButton');
+const prevButton = document.getElementById('prevButton');
 const progressBar = document.getElementById('progress-bar');
 const cardCounter = document.getElementById('card-counter');
+
+progressBar.addEventListener('click', (event) => {
+  const totalCards = flashcards.length;
+  const progressBarWidth = progressBar.offsetWidth;
+  const clickPosition = event.offsetX;
+  const newCardIndex = Math.floor((clickPosition / progressBarWidth) * totalCards);
+  currentCardIndex = newCardIndex;
+  updateFlashcard();
+  saveProgress(currentCardIndex);
+});
 
 function updateFlashcard() {
   const flashcard = flashcards[currentCardIndex];
