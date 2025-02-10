@@ -98,7 +98,7 @@ export const flashcards = [
     { word: "damit", meaning: "with it; so that" },
     { word: "selbst, selber", meaning: "self; even" },
     { word: "unser", meaning: "our" },
-    { word: "oben", meaning: "above, up there" }
+    { word: "oben", meaning: "above, up there" },
     { word: "drei", meaning: "three" },
     { word: "wenig", meaning: "few, little" },
     { word: "Frau", meaning: "woman, wife, Mrs." },
