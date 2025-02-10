@@ -87,7 +87,7 @@ export const flashcards = [
     { word: "denn", meaning: "because" },
     { word: "stehen", meaning: "to stand" },
     { word: "jed-", meaning: "every, each" },
-    { word: "Beispiel, das, -e", meaning: "example" },
+    { word: "Beispiel", meaning: "example" },
     { word: "Zeit, die", meaning: "time" },
     { word: "erste, erster, erstes", meaning: "first" },
     { word: "ihm", meaning: "him, it" },
