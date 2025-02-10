@@ -25,6 +25,12 @@ nextButton.addEventListener('click', () => {
   saveProgress(currentCardIndex);
 });
 
+prevButton.addEventListener('click', () => { // Add this block
+  currentCardIndex = (currentCardIndex - 1 + flashcards.length) % flashcards.length;
+  updateFlashcard();
+  saveProgress(currentCardIndex);
+});
+
 function saveProgress(currentCardIndex) {
   localStorage.setItem('flashcardProgress', currentCardIndex);
 }

@@ -66,17 +66,24 @@ progress::-webkit-progress-value {
   border-radius: 10px; /* Doubled from 5px */
 }
 
+#button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adjust gap as needed */
+}
+
 button {
-  padding: 20px 40px; /* Doubled from 10px 20px */
-  font-size: 32px; /* Doubled from 16px */
+  padding: 20px 40px;
+  font-size: 32px;
   cursor: pointer;
-  background-color: #76c7c0;
+  background-color: #5d04f7;
   border: none;
-  border-radius: 10px; /* Doubled from 5px */
+  border-radius: 10px;
   color: white;
   transition: background-color 0.3s ease;
-  width: fit-content; /* Add this line to fix the button width */
-  margin: 20px auto; /* Center the button */
+  width: fit-content;
+  /* Remove margin from button */
+  margin: 10px;
 }
 
 button:hover {
@@ -84,7 +91,7 @@ button:hover {
 }
 
 footer {
-  margin-top: auto;
+  margin-top: 20px;
   font-size: small;
   color: gray;
   text-align: center;
