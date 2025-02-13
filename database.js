@@ -1,7 +1,7 @@
 export const flashcards = [
     { word: "der / die / das", meaning: "the; that, those; who, that" },
     { word: "und", meaning: "and" },
-    { word: "sein", meaning: "to be" },
+    { word: "zu sein", meaning: "to be" },
     { word: "in", meaning: "in" },
     { word: "ein", meaning: "a, an; one" },
     { word: "zu", meaning: "to, at; too" },

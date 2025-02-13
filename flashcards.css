@@ -97,3 +97,47 @@ footer {
   color: gray;
   text-align: center;
 }
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+#toggleDarkMode {
+  font-size: 10px;  /* Makes the text smaller */
+  padding: 4px 8px;  /* Adjusts the button size */
+  width: auto;  /* Ensures it doesn't stretch */
+  height: auto;
+  min-width: 40px;  /* Prevents it from becoming too small */
+  min-height: 20px;
+}
+
+.word {
+  color: #000000; /* Default color */
+}
+
+.meaning {
+  color: #555555; /* Default color */
+}
+
+body.dark-mode .word {
+  color: #ffffff; /* White color for dark mode */
+}
+
+body.dark-mode .meaning {
+  color: #ffffff; /* White color for dark mode */
+}
+
+#flashcard.dark-mode {
+  background-color: black; /* Black background for dark mode */
+}
+
+#toggleDarkMode {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 10px;
+  padding: 4px 8px;
+  min-width: 40px;
+  min-height: 20px;
+}

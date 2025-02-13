@@ -6,6 +6,7 @@ const nextButton = document.getElementById('nextButton');
 const prevButton = document.getElementById('prevButton');
 const progressBar = document.getElementById('progress-bar');
 const cardCounter = document.getElementById('card-counter');
+const toggleDarkModeButton = document.getElementById('toggleDarkMode');
 
 progressBar.addEventListener('click', (event) => {
   const totalCards = flashcards.length;
@@ -36,11 +37,18 @@ nextButton.addEventListener('click', () => {
   saveProgress(currentCardIndex);
 });
 
-prevButton.addEventListener('click', () => { // Add this block
+prevButton.addEventListener('click', () => {
   currentCardIndex = (currentCardIndex - 1 + flashcards.length) % flashcards.length;
   updateFlashcard();
   saveProgress(currentCardIndex);
 });
+
+toggleDarkModeButton.addEventListener('click', toggleDarkMode);
+
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  flashcardElement.classList.toggle('dark-mode');
+}
 
 function saveProgress(currentCardIndex) {
   localStorage.setItem('flashcardProgress', currentCardIndex);
