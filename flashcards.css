@@ -6,6 +6,7 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 40px; /* Doubled from 20px */
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -57,12 +58,12 @@ progress {
 }
 
 progress::-webkit-progress-bar {
-  background-color: #e0e0e0;
+  background-color: grey;
   border-radius: 10px; /* Doubled from 5px */
 }
 
 progress::-webkit-progress-value {
-  background-color: #76c7c0;
+  background-color: green;
   border-radius: 10px; /* Doubled from 5px */
 }
 
@@ -87,7 +88,7 @@ button {
 }
 
 button:hover {
-  background-color: #5da7a0;
+  background-color: green;
 }
 
 footer {
