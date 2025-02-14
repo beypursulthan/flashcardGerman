@@ -19,9 +19,19 @@ progressBar.addEventListener('click', (event) => {
 });
 
 function updateFlashcard() {
-  const flashcard = flashcards[currentCardIndex];
-  flashcardElement.innerHTML = `<div class="word">${flashcard.word}</div><div class="meaning">${flashcard.meaning}</div>`;
-  updateProgress();
+  try {
+    const flashcard = flashcards[currentCardIndex];
+    if (!flashcard) {
+      throw new Error('Invalid card index');
+    }
+    flashcardElement.innerHTML = `<div class="word">${flashcard.word}</div><div class="meaning">${flashcard.meaning}</div>`;
+    updateProgress();
+  } catch (error) {
+    console.error('Error updating flashcard:', error);
+    // Fallback to first card
+    currentCardIndex = 0;
+    updateFlashcard();
+  }
 }
 
 function updateProgress() {
@@ -48,18 +58,68 @@ toggleDarkModeButton.addEventListener('click', toggleDarkMode);
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
   flashcardElement.classList.toggle('dark-mode');
+  // Save dark mode preference
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDarkMode);
 }
 
+/**
+ * Saves the current card index to localStorage
+ * @param {number} currentCardIndex - The index to save
+ */
 function saveProgress(currentCardIndex) {
-  localStorage.setItem('flashcardProgress', currentCardIndex);
+  try {
+    if (typeof currentCardIndex !== 'number' || currentCardIndex < 0) {
+      throw new Error('Invalid card index');
+    }
+    localStorage.setItem('flashcardProgress', currentCardIndex);
+  } catch (error) {
+    console.error('Error saving progress:', error);
+  }
 }
 
+/**
+ * Loads the saved progress from localStorage
+ * @returns {number} The saved card index or 0 if none exists
+ */
 function loadProgress() {
-  const savedProgress = localStorage.getItem('flashcardProgress');
-  if (savedProgress !== null) {
-    return parseInt(savedProgress, 10);
+  try {
+    const savedProgress = localStorage.getItem('flashcardProgress');
+    if (savedProgress !== null) {
+      const index = parseInt(savedProgress, 10);
+      if (isNaN(index) || index < 0 || index >= flashcards.length) {
+        throw new Error('Invalid saved progress');
+      }
+      return index;
+    }
+  } catch (error) {
+    console.error('Error loading progress:', error);
   }
-  return 0; // Default to the first card if no progress is saved
+  return 0;
 }
+
+// Load dark mode preference on startup
+const savedDarkMode = localStorage.getItem('darkMode');
+if (savedDarkMode === 'true') {
+  toggleDarkMode();
+}
+
+// Add keyboard navigation
+document.addEventListener('keydown', (event) => {
+  switch (event.key) {
+    case 'ArrowRight':
+    case 'ArrowDown':
+      currentCardIndex = (currentCardIndex + 1) % flashcards.length;
+      updateFlashcard();
+      saveProgress(currentCardIndex);
+      break;
+    case 'ArrowLeft':
+    case 'ArrowUp':
+      currentCardIndex = (currentCardIndex - 1 + flashcards.length) % flashcards.length;
+      updateFlashcard();
+      saveProgress(currentCardIndex);
+      break;
+  }
+});
 
 updateFlashcard();
