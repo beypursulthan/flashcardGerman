@@ -10,7 +10,7 @@
   <h1>German Flashcards</h1>
   <p>These are the most common words in German ranked in order.</p>
 
-  <div id="flashcard" class="card">Click "Next" to start</div>
+  <div id="flashcard" class="card" role="region" aria-label="Flashcard">Click "Next" to start</div>
 
   <div id="progress-container">
     <progress id="progress-bar" value="0" max="100"></progress>
@@ -18,9 +18,9 @@
   </div>
 
   <div id="button-container">
-    <button id="nextButton">Next</button>
-    <button id="prevButton">Back</button>
-    <button id="toggleDarkMode">Dark Mode</button>
+    <button id="nextButton" aria-label="Next card">Next</button>
+    <button id="prevButton" aria-label="Previous card">Back</button>
+    <button id="toggleDarkMode" aria-label="Toggle dark mode">Dark Mode</button>
   </div>
 
   <script type="module" src="flashcards.js"></script>

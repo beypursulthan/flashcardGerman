@@ -122,4 +122,41 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+// Add speak function
+function speakWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = 'de-DE'; // Set language to German
+  utterance.rate = 0.8; // Slightly slower speed for better clarity
+  speechSynthesis.speak(utterance);
+}
+
+// Add speak button event listener
+document.addEventListener('DOMContentLoaded', () => {
+  // Add a speak button to the card
+  const card = document.querySelector('.card');
+  const speakButton = document.createElement('button');
+  speakButton.innerHTML = '🔊'; // Speaker icon
+  speakButton.className = 'speak-button';
+  speakButton.setAttribute('aria-label', 'Pronounce word');
+  card.appendChild(speakButton);
+
+  // Add click event for pronunciation
+  speakButton.addEventListener('click', () => {
+    const wordElement = document.querySelector('.word');
+    if (wordElement) {
+      speakWord(wordElement.textContent);
+    }
+  });
+
+  // Add 'S' key as keyboard shortcut for pronunciation
+  document.addEventListener('keydown', (event) => {
+    if (event.key.toLowerCase() === 's') {
+      const wordElement = document.querySelector('.word');
+      if (wordElement) {
+        speakWord(wordElement.textContent);
+      }
+    }
+  });
+});
+
 updateFlashcard();

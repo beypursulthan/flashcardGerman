@@ -26,6 +26,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #f8f8f8;
+  position: relative;
 }
 
 .word, .meaning {
@@ -133,5 +134,24 @@ body.dark-mode .meaning {
 
 #flashcard.dark-mode {
   background-color: black; /* Black background for dark mode */
+}
+
+.speak-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  font-size: 20px;
+  background-color: #5d04f7;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.speak-button:hover {
+  background-color: green;
 }
 
