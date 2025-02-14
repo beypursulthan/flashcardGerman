@@ -1,4 +1,5 @@
 import { flashcards } from './database.js';
+import { examples } from './examples.js';
 
 let currentCardIndex = loadProgress();
 const flashcardElement = document.getElementById('flashcard');
@@ -21,25 +22,33 @@ progressBar.addEventListener('click', (event) => {
 function updateFlashcard() {
   try {
     const flashcard = flashcards[currentCardIndex];
+    const example = examples[currentCardIndex];
     if (!flashcard) {
       throw new Error('Invalid card index');
     }
     flashcardElement.innerHTML = `
       <div class="word">${flashcard.word}</div>
       <div class="meaning">${flashcard.meaning}</div>
+      <div class="example">${example}</div>
       <button class="speak-button" aria-label="Pronounce word">🔊</button>
+      <button class="speak-example-button" aria-label="Pronounce example">📢</button>
     `;
     
-    // Add click event for the new speak button
+    // Add click events for both speak buttons
     const speakButton = flashcardElement.querySelector('.speak-button');
+    const speakExampleButton = flashcardElement.querySelector('.speak-example-button');
+    
     speakButton.addEventListener('click', () => {
       speakWord(flashcard.word);
+    });
+    
+    speakExampleButton.addEventListener('click', () => {
+      speakWord(example);
     });
     
     updateProgress();
   } catch (error) {
     console.error('Error updating flashcard:', error);
-    // Fallback to first card
     currentCardIndex = 0;
     updateFlashcard();
   }

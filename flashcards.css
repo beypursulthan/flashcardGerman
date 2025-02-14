@@ -151,7 +151,34 @@ body.dark-mode .meaning {
   transition: background-color 0.3s ease;
 }
 
-.speak-button:hover {
+.speak-example-button {
+  position: absolute;
+  top: 60px;  /* Changed from 10px to 60px to move it down */
+  right: 10px;  /* Changed from 60px to 10px to align with speak button */
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  font-size: 20px;
+  background-color: #4a03c4;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.speak-button:hover,
+.speak-example-button:hover {
   background-color: green;
+}
+
+.example {
+  font-size: 24px;
+  color: #666;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.dark-mode .example {
+  color: #aaa;
 }
 
