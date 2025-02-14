@@ -14,8 +14,9 @@ class StoryManager {
         this.prevButton = document.getElementById('prev-story');
         this.nextButton = document.getElementById('next-story');
         this.progressBar = document.getElementById('story-progress');
+        this.storyCounter = document.getElementById('story-counter');
         
-        if (!this.storyContent || !this.prevButton || !this.nextButton || !this.progressBar) {
+        if (!this.storyContent || !this.prevButton || !this.nextButton || !this.progressBar || !this.storyCounter) {
             console.error('Required elements not found in the DOM');
             return;
         }
@@ -36,6 +37,9 @@ class StoryManager {
         // Update progress bar
         const progress = ((this.currentIndex + 1) / this.stories.length) * 100;
         this.progressBar.style.width = `${progress}%`;
+        
+        // Update story counter
+        this.storyCounter.textContent = `${this.currentIndex + 1} of ${this.stories.length} stories`;
         
         // Update button states
         this.prevButton.disabled = this.currentIndex === 0;

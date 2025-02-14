@@ -23,7 +23,7 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 5rem;
 }
 
 .story-btn {
@@ -65,4 +65,14 @@ body.dark-mode .story-card {
 
 body.dark-mode .story-content {
     color: #e0e0e0;
+}
+
+#story-counter {
+    text-align: center;
+    margin-top: 4%;
+    color: black;
+}
+
+body.dark-mode #story-counter {
+    color: white;
 } 
