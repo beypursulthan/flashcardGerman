@@ -1,3 +1,6 @@
+import { flashcards } from './database.js';
+import { examples } from './examples.js';
+
 let currentCardIndex = loadProgress();
 const flashcardElement = document.getElementById('flashcard');
 const nextButton = document.getElementById('nextButton');

@@ -1,4 +1,4 @@
-const examples = [
+export const examples = [
     "Im Deutschunterricht lernen wir 'der / die / das'.",
     "Ich mag Äpfel und Bananen.",
     "Ich versuche, freundlich zu sein.",
