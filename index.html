@@ -23,9 +23,33 @@
     <button id="toggleDarkMode" aria-label="Toggle dark mode">Dark Mode</button>
   </div>
 
+  <!-- Stories Section -->
+  <section id="stories-section" class="stories-container">
+    <h2>German Stories</h2>
+    
+    <div class="progress-container">
+        <div class="progress-bar" id="story-progress"></div>
+    </div>
+
+    <div class="story-card">
+        <div class="story-content" id="story-content">
+            <!-- Story text will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <div class="story-controls">
+        <button id="prev-story" class="story-btn">Previous</button>
+        <button id="next-story" class="story-btn">Next</button>
+    </div>
+  </section>
+
   <script type="module" src="flashcards.js"></script>
   <footer>
     This experimental website is created for fun; we are not liable for any inaccuracies or outcomes from its use.
   </footer>
+
+  <!-- Add new CSS and JS files -->
+  <link rel="stylesheet" href="stories.css">
+  <script src="stories.js" type="module"></script>
 </body>
 </html>
