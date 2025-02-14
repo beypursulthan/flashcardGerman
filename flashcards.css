@@ -182,3 +182,70 @@ body.dark-mode .meaning {
   color: #aaa;
 }
 
+/* Tooltip styling */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    margin-bottom: 5px;
+    z-index: 100;
+}
+
+/* Add tooltip to speak buttons */
+.speak-button::after {
+    content: "Press 'S' to speak word";
+    position: absolute;
+    right: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.speak-example-button::after {
+    content: "Press 'E' to speak example";
+    position: absolute;
+    right: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.speak-button:hover::after,
+.speak-example-button:hover::after {
+    opacity: 1;
+}
+
+/* Dark mode support for tooltips */
+.dark-mode [data-tooltip]:hover::after,
+.dark-mode .speak-button::after,
+.dark-mode .speak-example-button::after {
+    background-color: #555;
+    color: #fff;
+}
+
