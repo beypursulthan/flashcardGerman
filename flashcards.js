@@ -24,7 +24,18 @@ function updateFlashcard() {
     if (!flashcard) {
       throw new Error('Invalid card index');
     }
-    flashcardElement.innerHTML = `<div class="word">${flashcard.word}</div><div class="meaning">${flashcard.meaning}</div>`;
+    flashcardElement.innerHTML = `
+      <div class="word">${flashcard.word}</div>
+      <div class="meaning">${flashcard.meaning}</div>
+      <button class="speak-button" aria-label="Pronounce word">🔊</button>
+    `;
+    
+    // Add click event for the new speak button
+    const speakButton = flashcardElement.querySelector('.speak-button');
+    speakButton.addEventListener('click', () => {
+      speakWord(flashcard.word);
+    });
+    
     updateProgress();
   } catch (error) {
     console.error('Error updating flashcard:', error);
