@@ -1,10 +1,10 @@
 export const stories = [
     {
         title: "Kinder",
-        text: "Der Junge und das Mädchen sind Freunde.
+        text: `Der Junge und das Mädchen sind Freunde.
 Sie wohnen in einem Haus.
 Der Junge hat ein Buch und das Mädchen hat einen Ball.
-Jeden Tag gehen sie in den Park."
+Jeden Tag gehen sie in den Park.`
     },
     {
         title: "Im Café",
