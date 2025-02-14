@@ -1,4 +1,4 @@
-import stories from './story-database.js';
+import { stories } from './story-database.js';
 
 class StoryManager {
     constructor() {
@@ -14,6 +14,11 @@ class StoryManager {
         this.prevButton = document.getElementById('prev-story');
         this.nextButton = document.getElementById('next-story');
         this.progressBar = document.getElementById('story-progress');
+        
+        if (!this.storyContent || !this.prevButton || !this.nextButton || !this.progressBar) {
+            console.error('Required elements not found in the DOM');
+            return;
+        }
     }
 
     setupEventListeners() {
