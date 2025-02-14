@@ -13,20 +13,23 @@ body {
 }
 
 .card {
-  width: 600px; /* Doubled from 300px */
-  max-width: 90%; /* Make it responsive */
-  height: 300px; /* Doubled from 150px */
-  margin: 40px auto; /* Doubled from 20px */
-  padding: 40px; /* Doubled from 20px */
-  border: 4px solid #333; /* Doubled from 2px */
-  border-radius: 20px; /* Doubled from 10px */
-  font-size: 40px; /* Doubled from 20px */
+  width: 600px;
+  max-width: 90%;
+  height: auto; /* Changed from fixed height to auto */
+  min-height: 300px; /* Added min-height instead of fixed height */
+  margin: 40px auto;
+  padding: 20px; /* Reduced padding for mobile */
+  border: 4px solid #333;
+  border-radius: 20px;
+  font-size: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #f8f8f8;
   position: relative;
+  overflow-wrap: break-word; /* Added to prevent text overflow */
+  word-wrap: break-word; /* Added for better browser support */
 }
 
 .word, .meaning {
@@ -35,14 +38,16 @@ body {
 }
 
 .word {
-  font-size: 48px; /* Doubled from 24px */
+  font-size: calc(24px + 2vw); /* Responsive font size */
   font-weight: bold;
-  margin-bottom: 10px; /* Doubled from 5px */
+  margin-bottom: 10px;
+  padding: 0 40px; /* Added padding to prevent overlap with buttons */
 }
 
 .meaning {
-  font-size: 36px; /* Doubled from 18px */
+  font-size: calc(18px + 1.5vw); /* Responsive font size */
   color: #555;
+  padding: 0 40px; /* Added padding to prevent overlap with buttons */
 }
 
 #progress-container {
@@ -172,80 +177,78 @@ body.dark-mode .meaning {
 }
 
 .example {
-  font-size: 24px;
+  font-size: calc(14px + 1vw); /* Responsive font size */
   color: #666;
   margin-top: 20px;
   font-style: italic;
+  padding: 0 40px; /* Added padding to prevent overlap with buttons */
 }
 
 .dark-mode .example {
   color: #aaa;
 }
 
-/* Tooltip styling */
-[data-tooltip] {
-    position: relative;
+/* Add new styles for shortcuts button and tooltip */
+#shortcutsButton {
+    position: absolute;
+    top: 30px;  /* Position it below dark mode button */
+    right: 0;
+    font-size: 10px;
+    padding: 4px 8px;
+    width: auto;
+    height: auto;
+    min-width: 40px;
+    min-height: 20px;
 }
 
-[data-tooltip]:hover::after {
-    content: attr(data-tooltip);
+.shortcuts-tooltip {
+    display: none;
     position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 5px 10px;
+    top: 60px;
+    right: 10px;
     background-color: #333;
     color: white;
+    padding: 15px;
     border-radius: 5px;
     font-size: 14px;
+    text-align: left;
+    z-index: 1000;
     white-space: nowrap;
-    margin-bottom: 5px;
-    z-index: 100;
 }
 
-/* Add tooltip to speak buttons */
-.speak-button::after {
-    content: "Press 'S' to speak word";
-    position: absolute;
-    right: 45px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 5px 10px;
-    background-color: #333;
-    color: white;
-    border-radius: 5px;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.speak-example-button::after {
-    content: "Press 'E' to speak example";
-    position: absolute;
-    right: 45px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 5px 10px;
-    background-color: #333;
-    color: white;
-    border-radius: 5px;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.speak-button:hover::after,
-.speak-example-button:hover::after {
-    opacity: 1;
-}
-
-/* Dark mode support for tooltips */
-.dark-mode [data-tooltip]:hover::after,
-.dark-mode .speak-button::after,
-.dark-mode .speak-example-button::after {
+.dark-mode .shortcuts-tooltip {
     background-color: #555;
-    color: #fff;
+}
+
+.shortcuts-tooltip.show {
+    display: block;
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width: 480px) {
+  body {
+    margin: 20px 10px; /* Reduced margin for mobile */
+  }
+
+  .card {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  button {
+    padding: 15px 30px;
+    font-size: 24px;
+  }
+
+  .speak-button,
+  .speak-example-button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .speak-example-button {
+    top: 50px; /* Adjusted position for mobile */
+  }
 }
 

@@ -124,20 +124,37 @@ if (savedDarkMode === 'true') {
   toggleDarkMode();
 }
 
-// Add keyboard navigation
+// Update the keyboard event listener to handle both 'S' and 'E' keys
 document.addEventListener('keydown', (event) => {
-  switch (event.key) {
-    case 'ArrowRight':
-    case 'ArrowDown':
+  // Only handle keyboard shortcuts if not typing in an input field
+  if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+    return;
+  }
+
+  switch (event.key.toLowerCase()) {
+    case 'arrowright':
+    case 'arrowdown':
       currentCardIndex = (currentCardIndex + 1) % flashcards.length;
       updateFlashcard();
       saveProgress(currentCardIndex);
       break;
-    case 'ArrowLeft':
-    case 'ArrowUp':
+    case 'arrowleft':
+    case 'arrowup':
       currentCardIndex = (currentCardIndex - 1 + flashcards.length) % flashcards.length;
       updateFlashcard();
       saveProgress(currentCardIndex);
+      break;
+    case 's':
+      const wordElement = document.querySelector('.word');
+      if (wordElement) {
+        speakWord(wordElement.textContent);
+      }
+      break;
+    case 'e':
+      const exampleElement = document.querySelector('.example');
+      if (exampleElement) {
+        speakWord(exampleElement.textContent);
+      }
       break;
   }
 });
@@ -150,33 +167,39 @@ function speakWord(word) {
   speechSynthesis.speak(utterance);
 }
 
-// Add speak button event listener
-document.addEventListener('DOMContentLoaded', () => {
-  // Add a speak button to the card
-  const card = document.querySelector('.card');
-  const speakButton = document.createElement('button');
-  speakButton.innerHTML = '🔊'; // Speaker icon
-  speakButton.className = 'speak-button';
-  speakButton.setAttribute('aria-label', 'Pronounce word');
-  card.appendChild(speakButton);
+// Add after the toggleDarkModeButton constant
+const shortcutsButton = document.createElement('button');
+shortcutsButton.id = 'shortcutsButton';
+shortcutsButton.textContent = 'Shortcuts';
+document.body.appendChild(shortcutsButton);
 
-  // Add click event for pronunciation
-  speakButton.addEventListener('click', () => {
-    const wordElement = document.querySelector('.word');
-    if (wordElement) {
-      speakWord(wordElement.textContent);
-    }
-  });
+// Add after the toggleDarkMode function
+function createShortcutsTooltip() {
+    const tooltip = document.createElement('div');
+    tooltip.className = 'shortcuts-tooltip';
+    tooltip.innerHTML = `
+        Keyboard Shortcuts:<br>
+        → or ↓: Next card<br>
+        ← or ↑: Previous card<br>
+        S: Speak word<br>
+        E: Speak example
+    `;
+    document.body.appendChild(tooltip);
+    return tooltip;
+}
 
-  // Add 'S' key as keyboard shortcut for pronunciation
-  document.addEventListener('keydown', (event) => {
-    if (event.key.toLowerCase() === 's') {
-      const wordElement = document.querySelector('.word');
-      if (wordElement) {
-        speakWord(wordElement.textContent);
-      }
+const shortcutsTooltip = createShortcutsTooltip();
+
+shortcutsButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+    shortcutsTooltip.classList.toggle('show');
+});
+
+// Hide tooltip when clicking anywhere else
+document.addEventListener('click', (event) => {
+    if (!shortcutsButton.contains(event.target)) {
+        shortcutsTooltip.classList.remove('show');
     }
-  });
 });
 
 updateFlashcard();
