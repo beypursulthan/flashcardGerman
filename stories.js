@@ -32,6 +32,7 @@ class StoryManager {
         this.storyContent.innerHTML = `
             <h3>${story.title}</h3>
             <p>${story.text}</p>
+            <p><strong>Level:</strong> ${story.level}</p>
         `;
         
         // Update progress bar
