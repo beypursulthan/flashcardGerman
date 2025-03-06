@@ -117,6 +117,25 @@ Es gibt frisches Obst, Gemüse und Blumen.
 Ich kaufe Äpfel, Tomaten und eine schöne Rose.
 Der Markt ist immer voll mit Menschen und es macht Spaß, dort einzukaufen.`,
         level: "A1.1"
+    },
+    {
+        title: "Ein Tag mit Anna und Max",
+        text: `Anna: Guten Morgen, Max! Wie geht es dir heute?
+Max: Guten Morgen, Anna! Mir geht es gut, danke. Und dir?
+Anna: Mir geht es auch gut. Was möchtest du heute machen?
+Max: Ich möchte ins Kino gehen. Hast du Zeit?
+Anna: Ja, ich habe Zeit. Welchen Film wollen wir sehen?
+Max: Ich habe gehört, dass der neue Film sehr gut ist. 
+Anna: Das klingt interessant! Um wie viel Uhr beginnt der Film?
+Max: Der Film beginnt um drei Uhr. Sollen wir vorher etwas essen?
+Anna: Gute Idee! Ich habe Hunger. Wo wollen wir essen?
+Max: Lass uns zum neuen Restaurant gehen. Es gibt dort leckeres Essen.
+Anna: Super! Ich mag Pizza. Was möchtest du essen?
+Max: Ich liebe Pasta! Lass uns schnell gehen, damit wir pünktlich sind.
+Anna: Ja, lass uns gehen! Ich freue mich auf den Tag!`,
+        level: `You did it! If you understood all this then this is more than enough 
+        german to survive in the streets. Next up; all you have to do is practice, practice and practice. 
+        There is no other way around it.`
     }
 ];
 
