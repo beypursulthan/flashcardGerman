@@ -133,9 +133,10 @@ Max: Lass uns zum neuen Restaurant gehen. Es gibt dort leckeres Essen.
 Anna: Super! Ich mag Pizza. Was möchtest du essen?
 Max: Ich liebe Pasta! Lass uns schnell gehen, damit wir pünktlich sind.
 Anna: Ja, lass uns gehen! Ich freue mich auf den Tag!`,
-        level: `You did it! If you understood all this then this is more than enough 
-        german to survive in the streets. Next up; all you have to do is practice, practice and practice. 
-        There is no other way around it.`
+        level: `Du hast es geschafft! 
+        Wenn du all das verstanden hast, dann ist das mehr als genug Deutsch, um dich auf der Straße durchzuschlagen. 
+        Als Nächstes musst du nur noch üben, üben und üben. 
+        Es gibt keinen anderen Weg!`
     }
 ];
 
